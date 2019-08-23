@@ -56,4 +56,13 @@ class User extends Authenticatable
             $user->activation_token = Str::random(10);
         });
     }
+
+    /**
+     * 建立一对多的关系
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
 }
